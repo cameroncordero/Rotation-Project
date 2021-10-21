@@ -16,4 +16,6 @@ for i,entry in enumerate(MutSeq):
     MutSeqWithContext.write('\t')
     MutSeqWithContext.write(str(lineColumns[5]))
     MutSeqWithContext.write('\n')
+MutSeqWithContext.close()
+MutSeq.close()
 print('done.')
