@@ -10,4 +10,4 @@ with open('Cutaneous_somatic_mutation_post_FASTA.bed', 'r') as MutSeqPostFasta:
                 contextCounts[Seq] = contextCounts.setdefault(Seq, 0) + 1
         for key, value in contextCounts.items():
             mutData.write('%s,%s\n' % (key, value))
-print ('done.')
+print ('done. ')
