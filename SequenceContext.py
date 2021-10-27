@@ -7,3 +7,4 @@ with open('Cutaneous_somatic_mutation_MELA_AU_DNVs_sorted_dinuc_filter.bed', 'r'
             MutSeqWithContext.write('\t'.join( [lineColumns[0], str(mutStart), 
                 str(mutEnd)] + lineColumns[3:] ) + '\n')
 print('done.')
+

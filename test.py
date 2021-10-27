@@ -17,3 +17,5 @@ for i,line in enumerate(f):
 firstItem, secondItem = myList[1], myList[2]
 print(firstItem)
 print(secondItem)
+
+import re
