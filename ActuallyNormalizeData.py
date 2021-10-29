@@ -1,5 +1,4 @@
 import statistics
-from decimal import *
 with open('mutationData.csv', 'r') as mutData:
     with open('genomicData.csv', 'r') as gData:
         with open('normalizedMutData.csv', 'w') as normData:
@@ -21,9 +20,8 @@ with open('mutationData.csv', 'r') as mutData:
                 normDataDict[mut1] = int(mfreq1)/int(gfreq)
             # dividing the data by the median to have a value of 1
             dataMedian = statistics.median(normDataDict.values())
-            print(Decimal(dataMedian))
             for mut2, mfreq2 in normDataDict.items():
-                print(mut2)
-                print(mfreq2)
-                finalDataDict[mut2] = Decimal(int(mfreq2))/Decimal(dataMedian)
-            print(finalDataDict)
+                finalDataDict[mut2] = mfreq2/dataMedian
+            for key, value in finalDataDict.items():
+                normData.write
+                normData.write('%s,%s\n' % (key, value))
