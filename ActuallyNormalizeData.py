@@ -21,7 +21,7 @@ with open('mutationData.csv', 'r') as mutData:
             # dividing the data by the median to have a value of 1
             dataMedian = statistics.median(normDataDict.values())
             for mut2, mfreq2 in normDataDict.items():
-                finalDataDict[mut2] = mfreq2/dataMedian
+                finalDataDict[mut2] = mfreq2#/dataMedian
             for key, value in finalDataDict.items():
                 normData.write
                 normData.write('%s,%s\n' % (key, value))
