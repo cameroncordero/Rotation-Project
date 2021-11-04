@@ -8,7 +8,7 @@ def CreateNewBedFile(fivePrimeCount: int, threePrimeCount: int, MutationFile, Fa
     Input the file names once they're in the same directory.
     """  
     with open(MutationFile, 'r') as MutSeq:
-        with open('MutationFileWithContextValues.bed', 'w') as MutSeqWithContext:
+        with open('Mutation_File_With_Context_Values.bed', 'w') as MutSeqWithContext:
                 for line in MutSeq:
                     lineColumns = line.strip().split('\t')
                     # decrease and increase the positional numbers so when
@@ -22,12 +22,12 @@ def CreateNewBedFile(fivePrimeCount: int, threePrimeCount: int, MutationFile, Fa
                         + '\n')
     # terminal portion to compare with fasta file and return the nuceotides missing
     subprocess.check_call(args=['bedtools', 'getfasta', '-fi', FastaFile, '-bed',
-        'MutationFileWithContextValues.bed', '-fo','ExpandedContext.fa', '-s'])
+        'Mutation_File_With_Context_Values.bed', '-fo','Expanded_Context.fa', '-s'])
     # with open('MutationFileWithContext.bed', 'r') as MutSeqWithContext:
     # output file from terminal fasta comparison
     with open(MutationFile, 'r') as MutSeq:
-        with open('MutationFileWithNucleotides.bed', 'w') as MutSeqPostFasta:
-            with open('ExpandedContext.fa', 'r') as FastaReturn:
+        with open('Mutation_File_With_Nucleotides.bed', 'w') as MutSeqPostFasta:
+            with open('Expanded_Context.fa', 'r') as FastaReturn:
                 for line in MutSeq:
                     lineColumns = line.strip().split('\t')
                     mutStart = int(lineColumns[1]) - fivePrimeCount
@@ -40,5 +40,5 @@ def CreateNewBedFile(fivePrimeCount: int, threePrimeCount: int, MutationFile, Fa
                         check[2] == str(mutEnd) and plusMinus[0] == lineColumns[5]), line + check
                     MutSeqPostFasta.write('\t'.join( lineColumns[:3] + 
                         [FastaReturn.readline().strip()] + lineColumns[4:] ) + '\n' )
-    os.remove('MutationFileWithContextValues.bed')
-    os.remove('ExpandedContext.fa')
+                os.remove('Mutation_File_With_Context_Values.bed')
+                os.remove('Expanded_Context.fa')

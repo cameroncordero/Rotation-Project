@@ -1,11 +1,11 @@
 import os
 def AttainMutationData(mutation: str, OutputFile, mutationSelection = True,
-    MutationCounts = 'MutationContextCounts.csv'):
+    MutationCounts = 'Mutation_Context_Counts.csv'):
     """
     Attains counts of each nucleotide context of the mutation.
     Input the mutation in the correct format in the file (ex. 'AC>TT' ).
     """
-    with open('MutationFileWithNucleotides.bed', 'r') as MutSeqPostFasta:
+    with open('Mutation_File_With_Nucleotides.bed', 'r') as MutSeqPostFasta:
         with open(OutputFile, 'w') as mutData:
             contextCounts = dict()
             for line in MutSeqPostFasta:
@@ -23,4 +23,4 @@ def AttainMutationData(mutation: str, OutputFile, mutationSelection = True,
             mutData.write('mutationContext,contextCount' + '\n')
             for key, value in contextCounts.items():
                 mutData.write('%s,%s\n' % (key, value))
-    os.remove('MutationFileWithNucleotides.bed')
+            os.remove('Mutation_File_With_Nucleotides.bed')
