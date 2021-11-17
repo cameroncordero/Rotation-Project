@@ -1,9 +1,10 @@
 from scipy import stats
 import pandas as pd
+import sys
 import scipy
 import statsmodels.api as sm
 OutputFile = 'AC>TT_Mutation_Context_Frequency.csv'
-with open('Linear_Regression_'+OutputFile, 'r') as data:
+with open('Normalized_Linear_Regression_'+OutputFile, 'r') as data:
     df = pd.read_csv(data)
     countDict = {}
     xdf = df.drop(columns=['context','frequency'])
@@ -25,4 +26,6 @@ with open('Linear_Regression_'+OutputFile, 'r') as data:
     Adi = df.drop(columns=['context', 'frequency', str(threeDrop), str(fiveDrop)])
     X2 = sm.add_constant(Adi)
     est = sm.OLS(ydf,X2).fit()
-    print(est.summary())
+    with open ('Regression_Results_'+OutputFile[:-3]+'.txt', 'w') as file:
+        sys.stdout = file
+        print(est.summary())
