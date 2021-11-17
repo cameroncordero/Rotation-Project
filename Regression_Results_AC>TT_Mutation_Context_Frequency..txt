@@ -4,7 +4,7 @@ Dep. Variable:              frequency   R-squared:                       0.882
 Model:                            OLS   Adj. R-squared:                  0.804
 Method:                 Least Squares   F-statistic:                     11.23
 Date:                Wed, 17 Nov 2021   Prob (F-statistic):           0.000965
-Time:                        13:04:38   Log-Likelihood:                -5.2835
+Time:                        13:45:07   Log-Likelihood:                -5.2835
 No. Observations:                  16   AIC:                             24.57
 Df Residuals:                       9   BIC:                             29.98
 Df Model:                           6                                         

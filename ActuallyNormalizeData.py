@@ -31,7 +31,7 @@ def NormalizeData(OutputFile, FastaFile, TotalNucleotidesPerContext: int, Normal
                     gData.write('%s,%s\n' % (key, value))
     if NormalizeToMedian:
         with open(OutputFile, 'r') as mutData:
-            with open('Genomic_Counts_'+str(TotalNucleotidesPerContext)+'mer_'+FastaFile+'.csv', 'r') as gData:
+            with open('Genomic_Counts_'+str(TotalNucleotidesPerContext)+'mer_'+FastaFile[:-3]+'.csv', 'r') as gData:
                 with open('Normalized_'+OutputFile, 'w') as normData:
                     mutDataDict = {}
                     gDataDict = {}

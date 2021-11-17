@@ -34,4 +34,3 @@ def LinearFile(OutputFile: str, NormalizedData = True, TotalNucs = 4):
                     str1 = lineColumns[0]
                     str2 = lineColumns[1]
                     file.write(','.join([str1,str2,str(fivePrimeA),str(fivePrimeT),str(fivePrimeC),str(fivePrimeG),str(threePrimeA),str(threePrimeT),str(threePrimeC),str(threePrimeG)])+'\n')
-LinearFile('AC>TT_Mutation_Context_Frequency.csv')
