@@ -1,0 +1,3 @@
+"https://www.encodeproject.org/metadata/?type=Annotation&%40id=%2Fannotations%2FENCSR288WPZ%2F&files.analyses.%40id=%2Fanalyses%2FENCAN614MIX%2F&files.preferred_default=true"
+https://www.encodeproject.org/files/ENCFF000CWS/@@download/ENCFF000CWS.bigBed
+https://www.encodeproject.org/files/ENCFF001TDQ/@@download/ENCFF001TDQ.bed.gz
