@@ -18,7 +18,7 @@ def AttainMutationData(mutation: str, OutputFile, mutationSelection = True,
                     if Mut == mutation:
                         contextCounts[Seq] = contextCounts.setdefault(Seq, 0) + 1
                 else:
-                    contextCounts[Seq] = contextCounts.setdefault(Seq, 0) + 1
+                    break
             #writes dictionary containing mutation context counts into a file
             mutData.write('mutationContext,contextCount' + '\n')
             for key, value in contextCounts.items():

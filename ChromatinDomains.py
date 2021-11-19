@@ -20,7 +20,7 @@ with open(MutationFile, 'r') as mutFile:
                         elif chromType[:2] in undefinedDomain:
                             newFile.write(mutLocWrite+'\t'+'other'+'\n')
                         else:
-                            print('found unidentified region')
+                            print('Unidentified domain?')
                             break
                         mutLocWrite = mutFile.readline().strip()
                         mutLoc = mutLocWrite.split('\t')
