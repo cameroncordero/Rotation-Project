@@ -12,8 +12,8 @@ def NormalizeData(OutputFile, FastaFile, TotalNucleotidesPerContext: int, Normal
                 seqCounts = dict()
                 for line in genome:
                     if '>' in line:
-                        print ('\x1B[3mProcessing...\x1B[0m ' + 
-                            line[1:4] + 'omosome ' + line[4:])
+                        #print ('\x1B[3mProcessing...\x1B[0m ' + 
+                        #    line[1:4] + 'omosome ' + line[4:])
                         fullLine = ''
                         leftovers = ''
                         continue
@@ -26,7 +26,7 @@ def NormalizeData(OutputFile, FastaFile, TotalNucleotidesPerContext: int, Normal
                             i += 1
                             nucContext = fullLine[i:i+4]
                         leftovers = fullLine[i:]
-                gData.write('sequenceContext,contextFrequency')
+                gData.write('sequenceContext,contextFrequency'+'\n')
                 for key, value in seqCounts.items():
                     gData.write('%s,%s\n' % (key, value))
     if NormalizeToMedian:
@@ -61,10 +61,9 @@ def NormalizeData(OutputFile, FastaFile, TotalNucleotidesPerContext: int, Normal
     else:
         with open(OutputFile, 'r') as mutData:
             with open('Genomic_Counts_'+str(TotalNucleotidesPerContext)+'mer_'+FastaFile[:-3]+'.csv', 'r') as gData:
-                with open('Raw_'+OutputFile, 'w') as normData:
+                with open('Raw_'+OutputFile, 'w') as rawData:
                     mutDataDict = {}
                     gDataDict = {}
-                    normDataDict = {}
                     finalDataDict = {}
                     # re-writing dictionaries from files
                     mutData = mutData.readlines()[1:]
@@ -79,6 +78,7 @@ def NormalizeData(OutputFile, FastaFile, TotalNucleotidesPerContext: int, Normal
                         # by the frequency of genomic x-mer sequences 
                     for mut1, mfreq1 in mutDataDict.items():
                         gfreq = gDataDict.get(mut1)
-                        normDataDict[mut1] = int(mfreq1)/int(gfreq)
+                        finalDataDict[mut1] = int(mfreq1)/int(gfreq)
+                    rawData.write('sequenceContext,rawCounts'+'\n')
                     for key, value in finalDataDict.items():
-                        normData.write('%s,%s\n' % (key, value))
+                        rawData.write('%s,%s\n' % (key, value))

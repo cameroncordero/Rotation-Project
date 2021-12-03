@@ -1,6 +1,11 @@
 # Ignore my genome fasta file.
 hg19.fa
 hg19.fa.fai
+heterochromatin_hg19.fa
+euchromatin_hg19.fa
+
+# Ignore my .bed files too
+ENCSR128RMY_rep1_1_bismark_biorep_CpG.bed
 
 # Ignore test files
 test*
